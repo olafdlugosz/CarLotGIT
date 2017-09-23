@@ -60,9 +60,17 @@ namespace CarLotGIT
         /// </summary>
         private void RemoveData()
         {
-            int index = carListBox.SelectedIndex;
-            safeHouse.carList.RemoveAt(index);
-            carListBox.Items.RemoveAt(index);
+            try
+            {
+                int index = carListBox.SelectedIndex;
+                safeHouse.carList.RemoveAt(index);
+                carListBox.Items.RemoveAt(index);
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+                MessageBox.Show("Please select a Car from the List!");
+            }
         }
         /// <summary>
         /// Method for storing Car class information in an external .txt file
